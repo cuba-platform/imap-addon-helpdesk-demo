@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.haulmont.demo.imap.web.taskmessage">
+    <data>
+        <instance id="taskMessageDc"
+                  class="com.haulmont.demo.imap.entity.TaskMessage"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="AUTO"
+                width="600"
+                modal="true"
+                forceDialog="true"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="taskMessageDc">
+            <column width="400px">
+                <lookupField id="directionField" property="direction" editable="false"/>
+                <textField id="subjectField" property="subject"/>
+                <textArea id="contentField" property="content" rows="5"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

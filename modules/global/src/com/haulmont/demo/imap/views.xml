@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="tasktrack_Task" name="task-view" extends="_local">
+        <property name="assignee" view="_minimal"/>
+        <property name="messages" view="_minimal">
+            <property name="createTs"/>
+            <property name="direction"/>
+            <property name="reporter"/>
+            <property name="subject"/>
+            <property name="content"/>
+        </property>
+    </view>
+    <view entity="tasktrack_Task" name="task-browse" extends="_local" systemProperties="true">
+        <property name="assignee" view="_minimal"/>
+    </view>
+    <view entity="tasktrack_TaskMessage" name="taskMessage-view" extends="_local" systemProperties="true">
+        <property name="task" view="task-message-view"/>
+    </view>
+    <view entity="tasktrack_Task" name="task-message-view" extends="_local" systemProperties="true">
+        <property name="state"/>
+    </view>
+</views>
